@@ -3,15 +3,19 @@
 // uses document.querySelector, so use CSS notation on "whereTo"
 
 
-function loadFileInto(fromFile, whereTo) {
+function loadFileInto(recipeName, listName, whereTo) {
 
   // 1. creating a new XMLHttpRequest object
   ajax = new XMLHttpRequest();
+  
+  // 2. define the fromFile variable with the passed recipeName and list
+  fromFile = "recipes.php?recipeName=" + recipeName + "&recipeList=" + listName;
+  console.log("FromURL: " + fromFile);
 
-  // 2. defines the GET/POST method, the source, and the async value of the AJAX object
+  // 3. defines the GET/POST method, the source, and the async value of the AJAX object
   ajax.open("GET", fromFile, true);
 
-  // 3. provides code to do something in response to the AJAX request
+  // 4. provides code to do something in response to the AJAX request
   ajax.onreadystatechange = function() {
 
     if ((this.readyState == 4) && (this.status == 200)) { // if .readyState is 4, the process is done; and if .status is 200, there were no HTTP errors
@@ -92,7 +96,7 @@ obj.insertBefore(newLI, obj.children[10]);
 //new recipe object
 
 
-function Recipe(recipeName,contributorName,imageURL,ingredientsFilename,equipmentFilename,directionsFilename) {
+function Recipe(recipeName,contributorName,imageURL) {
   this.recipe = recipeName;
   this.contributor = contributorName;
   this.img = imageURL;
@@ -106,19 +110,19 @@ function Recipe(recipeName,contributorName,imageURL,ingredientsFilename,equipmen
     document.querySelector("#contributor").innerHTML = this.contributor;
     document.body.style.backgroundImage = "url(" + this.img + ")";
     
-    loadFileInto(this.ingredients, "#ingredients ul");
-    loadFileInto(this.equipment, "#equipment ul");
-    loadFileInto(this.directions, "#directions ol");
+    loadFileInto(this.recipe, "ingredients", "#ingredients ul");
+    loadFileInto(this.recipe, "equipment", "#equipment ul");
+    loadFileInto(this.recipe, "directions", "#directions ol");
   }
  
 }
 
 
-MrsSiggsSnickerdoodles = new Recipe("Mrs. Siggs Snickerdoodles", "Theo", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85", "ingredients.html", "equipment.html", "directions.html")
+MrsSiggsSnickerdoodles = new Recipe("Mrs. Siggs Snickerdoodles", "Theo", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85")
 
-ChocolateChipCookies = new Recipe("Chocolate Chip Cookies!", "Aida Must", "https://aidamustdtc355.reclaim.hosting/tp4/images/chocolate.jpg", "ingredients2.html", "equipment2.html", "directions2.html")
+ChocolateChipCookies = new Recipe("Chocolate Chip Cookies!", "Aida Must", "https://aidamustdtc355.reclaim.hosting/tp4/images/chocolate.jpg")
 
-TheBestClassicSloppyJoes = new Recipe("The Best Classic Sloppy Joes", "Diana Alonso", "https://www.thewholesomedish.com/wp-content/uploads/2020/05/Best-Classic-Sloppy-Joes-600x900-1.jpg", "ingredients3.html", "equipment3.html", "directions3.html")
+TheBestClassicSloppyJoes = new Recipe("The Best Classic Sloppy Joes", "Diana Alonso", "https://www.thewholesomedish.com/wp-content/uploads/2020/05/Best-Classic-Sloppy-Joes-600x900-1.jpg")
 
 
 
