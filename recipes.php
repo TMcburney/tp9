@@ -14,12 +14,9 @@ if ($name = "Mrs. Siggs Snickerdoodles") {
     include "equipment.html";
   } 
   elseif ($list == "directions") {
-    include "directions.html"
+    include "directions.html";
   }
-  else {
-    echo "1";
-  }
-  
+}
   elseif ($name == "Chocolate Chip Cookies!") {
     
   if ($list == "ingredients") {
@@ -29,13 +26,9 @@ if ($name = "Mrs. Siggs Snickerdoodles") {
     include "equipment2.html";
   } 
   elseif ($list == "directions") {
-    include "directions2.html"
+    include "directions2.html";
   }
-  else {
-    echo "1";
-  }
- 
-    elseif ($name == "The Best Classic Sloppy Joes")
+    elseif ($name == "The Best Classic Sloppy Joes") {
       
       if ($list == "ingredients") {
     include "ingredients3.html";
@@ -46,11 +39,8 @@ if ($name = "Mrs. Siggs Snickerdoodles") {
   elseif ($list == "directions") {
     include "directions3.html"
   }
-  else {
-    echo "1";
-} 
+      
   else {
   echo "0";
 }
-
 
