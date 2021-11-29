@@ -36,6 +36,39 @@ function loadFileInto(recipeName, listName, whereTo) {
 //ajax is done now
 
 
+newLI = document.createElement("li");
+newLI.innerHTML = "*These measurements make about 48 cookies*";
+obj = document.querySelector("#ingredients ul") //.classList.toggle("showMe");
+obj.insertBefore(newLI, obj.children[10]);
+
+//new recipe object
+
+
+function Recipe(recipeName,contributorName,imageURL) {
+  this.recipe = recipeName;
+  this.contributor = contributorName;
+  this.img = imageURL;
+
+  this.displayRecipe = function() {
+
+    document.querySelector("#title h1").innerHTML = this.recipe;
+    document.querySelector("#contributor").innerHTML = this.contributor;
+    document.body.style.backgroundImage = "url(" + this.img + ")";
+    
+    loadFileInto(this.recipe, "ingredients", "#ingredients ul");
+    loadFileInto(this.recipe, "equipment", "#equipment ul");
+    loadFileInto(this.recipe, "directions", "#directions ol");
+  }
+}
+
+MrsSiggsSnickerdoodles = new Recipe("Mrs. Siggs Snickerdoodles", "Theo McBurney", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85")
+
+ChocolateChipCookies = new Recipe("Chocolate Chip Cookies!", "Aida Must", "https://aidamustdtc355.reclaim.hosting/tp4/images/chocolate.jpg")
+
+TheBestClassicSloppyJoes = new Recipe("The Best Classic Sloppy Joes", "Diana Alonso", "https://www.thewholesomedish.com/wp-content/uploads/2020/05/Best-Classic-Sloppy-Joes-600x900-1.jpg")
+
+
+
 
 window.onload = function() {
 
@@ -87,44 +120,6 @@ document.querySelector("#r1").onclick = function() {
   
 
 } //end of onload
-
-newLI = document.createElement("li");
-newLI.innerHTML = "*These measurements make about 48 cookies*";
-obj = document.querySelector("#ingredients ul") //.classList.toggle("showMe");
-obj.insertBefore(newLI, obj.children[10]);
-
-//new recipe object
-
-
-function Recipe(recipeName,contributorName,imageURL) {
-  this.recipe = recipeName;
-  this.contributor = contributorName;
-  this.img = imageURL;
-  this.ingredients = ingredientsFilename;
-  this.equipment = equipmentFilename;
-  this.directions = directionsFilename;
-
-  this.displayRecipe = function() {
-
-    document.querySelector("#title h1").innerHTML = this.recipe;
-    document.querySelector("#contributor").innerHTML = this.contributor;
-    document.body.style.backgroundImage = "url(" + this.img + ")";
-    
-    loadFileInto(this.recipe, "ingredients", "#ingredients ul");
-    loadFileInto(this.recipe, "equipment", "#equipment ul");
-    loadFileInto(this.recipe, "directions", "#directions ol");
-  }
- 
-}
-
-
-MrsSiggsSnickerdoodles = new Recipe("Mrs. Siggs Snickerdoodles", "Theo", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1751192.jpg&w=596&h=596&c=sc&poi=face&q=85")
-
-ChocolateChipCookies = new Recipe("Chocolate Chip Cookies!", "Aida Must", "https://aidamustdtc355.reclaim.hosting/tp4/images/chocolate.jpg")
-
-TheBestClassicSloppyJoes = new Recipe("The Best Classic Sloppy Joes", "Diana Alonso", "https://www.thewholesomedish.com/wp-content/uploads/2020/05/Best-Classic-Sloppy-Joes-600x900-1.jpg")
-
-
 
 
 

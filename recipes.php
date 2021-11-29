@@ -5,7 +5,7 @@
 $name = $_GET["recipeName"];
 $list = $_GET["recipeList"];
 
-if ($name = "Mrs. Siggs Snickerdoodles") {
+if ($name == "Mrs. Siggs Snickerdoodles") {
   
   if ($list == "ingredients") {
     include "ingredients.html";
@@ -19,16 +19,16 @@ if ($name = "Mrs. Siggs Snickerdoodles") {
 }
   elseif ($name == "Chocolate Chip Cookies!") {
     
-  if ($list == "ingredients") {
-    include "ingredients2.html";
-  } 
-  elseif ($list == "equipment") {
-    include "equipment2.html";
-  } 
-  elseif ($list == "directions") {
-    include "directions2.html";
-  }
-    elseif ($name == "The Best Classic Sloppy Joes") {
+    if ($list == "ingredients") {
+      include "ingredients2.html";
+    } 
+    elseif ($list == "equipment") {
+      include "equipment2.html";
+    } 
+    elseif ($list == "directions") {
+      include "directions2.html";
+    }
+  }    elseif ($name == "The Best Classic Sloppy Joes") {
       
       if ($list == "ingredients") {
     include "ingredients3.html";
@@ -37,10 +37,9 @@ if ($name = "Mrs. Siggs Snickerdoodles") {
     include "equipment3.html";
   } 
   elseif ($list == "directions") {
-    include "directions3.html"
+    include "directions3.html";
   }
       
-  else {
+  }  else {
   echo "0";
 }
-
